@@ -1,3 +1,9 @@
+import { Header } from './components/Header'
+
 export function App() {
-  return <p>To Do List</p>
+  return (
+    <>
+      <Header />
+    </>
+  )
 }
