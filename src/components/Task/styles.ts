@@ -27,6 +27,8 @@ export const Container = styled.div<ContainerProps>`
 export const CheckboxWrapper = styled.div`
   display: flex;
   align-items: flex-start;
+
+  flex: 1;
 `
 
 export const CheckboxHidden = styled.input.attrs({ type: 'checkbox' })`

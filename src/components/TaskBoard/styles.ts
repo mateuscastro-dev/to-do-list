@@ -39,7 +39,7 @@ export const HeaderBadge = styled.div`
   color: var(--gray-100);
   background: var(--gray-400);
 
-  width: 25px;
+  min-width: 25px;
   height: 19px;
 
   border-radius: 999px;

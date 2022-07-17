@@ -1,5 +1,7 @@
-import { useState } from 'react'
 import { Check, Trash } from 'phosphor-react'
+
+import { Task as TaskModel } from '../../models/task'
+import { useTasks } from '../../contexts/TasksContext'
 
 import {
   Container,
@@ -9,29 +11,36 @@ import {
   CheckboxLabel
 } from './styles'
 
-export function Task() {
-  const [isChecked, setIsChecked] = useState(false)
+interface TaskProps {
+  task: TaskModel
+}
+
+export function Task({ task }: TaskProps) {
+  const { checkTask, removeTask } = useTasks()
 
   function handleCheckTask() {
-    setIsChecked(!isChecked)
+    checkTask(task)
+  }
+
+  function handleRemoveTask() {
+    removeTask(task)
   }
 
   return (
-    <Container checked={isChecked}>
+    <Container checked={task.isCompleted}>
       <CheckboxWrapper onClick={handleCheckTask}>
-        <CheckboxHidden checked={isChecked} onChange={handleCheckTask} />
+        <CheckboxHidden checked={task.isCompleted} onChange={handleCheckTask} />
 
-        <Checkbox checked={isChecked}>
+        <Checkbox checked={task.isCompleted}>
           <Check size={16} color='white' />
         </Checkbox>
 
-        <CheckboxLabel checked={isChecked}>
-          Integer urna interdum massa libero auctor neque turpis turpis semper.
-          Duis vel sed fames integer.
+        <CheckboxLabel checked={task.isCompleted}>
+          {task.description}
         </CheckboxLabel>
       </CheckboxWrapper>
 
-      <Trash size={24} />
+      <Trash size={24} onClick={handleRemoveTask} />
     </Container>
   )
 }

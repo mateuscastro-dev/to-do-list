@@ -40,4 +40,9 @@ export const Button = styled.button`
   border-radius: 8px;
 
   outline: none;
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
 `
