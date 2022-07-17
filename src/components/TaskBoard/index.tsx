@@ -10,7 +10,7 @@ import {
 } from './styles'
 
 export function TaskBoard() {
-  const haveTasks = false
+  const haveTasks = true
 
   return (
     <Container>
