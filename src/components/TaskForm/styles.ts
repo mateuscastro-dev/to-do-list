@@ -17,14 +17,12 @@ export const Input = styled.input`
   color: var(--gray-300);
   background: var(--gray-500);
 
-  border: 0;
+  border: 1px solid var(--gray-700);
   border-radius: 8px;
 
   padding: 1rem;
 
-  &:focus {
-    outline: 1px solid var(--gray-700);
-  }
+  outline: none;
 `
 
 export const Button = styled.button`
