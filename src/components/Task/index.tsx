@@ -1,7 +1,13 @@
 import { useState } from 'react'
-import { Check } from 'phosphor-react'
+import { Check, Trash } from 'phosphor-react'
 
-import { Container, Hidden, Checkbox, Text } from './styles'
+import {
+  Container,
+  CheckboxWrapper,
+  CheckboxHidden,
+  Checkbox,
+  CheckboxLabel
+} from './styles'
 
 export function Task() {
   const [isChecked, setIsChecked] = useState(false)
@@ -11,17 +17,21 @@ export function Task() {
   }
 
   return (
-    <Container checked={isChecked} onClick={handleCheckTask}>
-      <Hidden checked={isChecked} onChange={handleCheckTask} />
+    <Container checked={isChecked}>
+      <CheckboxWrapper onClick={handleCheckTask}>
+        <CheckboxHidden checked={isChecked} onChange={handleCheckTask} />
 
-      <Checkbox checked={isChecked}>
-        <Check size={16} color='white' />
-      </Checkbox>
+        <Checkbox checked={isChecked}>
+          <Check size={16} color='white' />
+        </Checkbox>
 
-      <Text checked={isChecked}>
-        Integer urna interdum massa libero auctor neque turpis turpis semper.
-        Duis vel sed fames integer.
-      </Text>
+        <CheckboxLabel checked={isChecked}>
+          Integer urna interdum massa libero auctor neque turpis turpis semper.
+          Duis vel sed fames integer.
+        </CheckboxLabel>
+      </CheckboxWrapper>
+
+      <Trash size={24} />
     </Container>
   )
 }

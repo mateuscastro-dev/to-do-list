@@ -8,7 +8,9 @@ export const Container = styled.div<ContainerProps>`
   width: 100%;
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+
+  gap: 0.75rem;
 
   border-radius: 8px;
   border: ${props =>
@@ -16,9 +18,18 @@ export const Container = styled.div<ContainerProps>`
 
   padding: 1rem;
   background: var(--gray-500);
+
+  > svg {
+    cursor: pointer;
+  }
 `
 
-export const Hidden = styled.input.attrs({ type: 'checkbox' })`
+export const CheckboxWrapper = styled.div`
+  display: flex;
+  align-items: flex-start;
+`
+
+export const CheckboxHidden = styled.input.attrs({ type: 'checkbox' })`
   overflow: hidden;
   white-space: nowrap;
 
@@ -29,11 +40,11 @@ export const Hidden = styled.input.attrs({ type: 'checkbox' })`
   margin: -1px;
 `
 
-interface TextProps {
+interface CheckboxLabelProps {
   checked: boolean
 }
 
-export const Text = styled.label<TextProps>`
+export const CheckboxLabel = styled.label<CheckboxLabelProps>`
   font-size: 0.875rem;
   font-weight: 400;
 
